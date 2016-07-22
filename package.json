@@ -1,0 +1,28 @@
+{
+  "name": "acme-products",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patspeiser/acme-products.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patspeiser/acme-products/issues"
+  },
+  "homepage": "https://github.com/patspeiser/acme-products#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "swig": "^1.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.9.2"
+  }
+}
