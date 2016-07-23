@@ -1,6 +1,10 @@
 {% extends "./layout.html" %}
 
-
-
 {% block content %}
+	got here at least	
+	<ul>
+		{% for char in chars %}
+			<li> {{ char }} </li>
+		{% endfor %}
+	</ul>
 {% endblock %}
