@@ -1,28 +1,41 @@
 var express = require('express');
 var router = express.Router();
-var characters = require('../../characters');
+var products = require('../../products');
 var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
+var methodOverride = require('method-override');
+
+//yay do these on all requests
 router.use(bodyParser.urlencoded({ encoded: false }));
 router.use(bodyParser.json());
+router.use(methodOverride('_method'));
 
-//use this to get some cool stuff to display
+//root. show index page
 router.get('/', function(req, res){
-	var chars = characters.getAllCharacters();
-	console.log(characters);
-	res.render('index', { characters: chars });
+	var prods = products.getAllProducts();
+	res.render('index', { products: prods });
 });
 
-router.get('/addcharacter', function(req, res){
-	console.log('at /addcharacter');
-	res.render('addcharacter' );
+//show add products page
+router.get('/addproduct', function(req, res){
+	res.render('addproduct' );
 });
 
-router.get('/character/:id/edit', function(req, res){
-	var character = req.params.id;
-	console.log('at /character/:id' + character);
-	res.render('character')
+
+//what to do when we submit on addprouct page
+router.post('/addproduct', function(req, res){
+	console.log(req.body.description);
+	products.addProduct(req.body.description);
+	res.redirect('/');
 })
+
+
+//handle how to delete a product
+router.delete('/:id', function(req, res){
+		var idToDelete = req.params.id*1;
+		products.deleteProduct(idToDelete);
+		res.redirect('/');
+});
 
 
 module.exports = router;
