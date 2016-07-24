@@ -49,10 +49,22 @@ var deleteProduct = function(id){
 			return product.id === id;
 		})[0];
 
-	var indexToDelete = getAllProducts().indexOf(deleteProd);
+	var indexToDelete = this.getAllProducts().indexOf(deleteProd);
 	this.getAllProducts().splice(indexToDelete, 1);
 };
 
+var updateProduct = function(id, desc){
+	console.log('in actual function', desc);
+	var updateProd = this.getAllProducts().filter(function(product){
+		return product.id === id;
+	})[0];
+	console.log(updateProd, 'updateprod');
+	var indexToUpdate = this.getAllProducts().indexOf(updateProd);
+	this.getAllProducts()[indexToUpdate].description = desc;
+	
+}
+
+
 console.log(getAllProducts());
-module.exports = { getAllProducts: getAllProducts, getProductsByID: getProductsByID, addProduct: addProduct, deleteProduct: deleteProduct };
+module.exports = { getAllProducts: getAllProducts, getProductsByID: getProductsByID, addProduct: addProduct, deleteProduct: deleteProduct, updateProduct: updateProduct };
 

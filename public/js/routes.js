@@ -29,6 +29,18 @@ router.post('/addproduct', function(req, res){
 	res.redirect('/');
 })
 
+router.get('/product/:id', function(req, res){
+	var description = products.getProductsByID(req.params.id).description;
+	console.log(description);
+	res.render('product', { id: req.params.id, description: description });
+});
+
+router.put('/product/:id', function(req, res){
+	var idToUpdate = req.params.id*1;
+	console.log(idToUpdate, req.body.description);
+	products.updateProduct(idToUpdate, req.body.description);
+	res.redirect('/');
+});
 
 //handle how to delete a product
 router.delete('/:id', function(req, res){
