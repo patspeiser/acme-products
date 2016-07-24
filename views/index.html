@@ -1,10 +1,35 @@
-{% extends "./layout.html" %}
-
+{% extends "layout.html" %}
 {% block content %}
-	got here at least	
-	<ul>
-		{% for char in chars %}
-			<li> {{ char }} </li>
-		{% endfor %}
-	</ul>
+
+<div class='container fluid'>
+	<table class='table'>
+	{% for character in characters %}
+		<div>
+			<table>
+				<tr>
+
+					<td>
+						<h2>{{ character.name }} </h2> 
+					</td>
+
+					<td>	
+						<div class="btn-group" role="group" aria-labels="...">
+							<button type="button" class="btn btn-default" id='edit'> Edit </button>
+							<button type="button" class="btn btn-default" id='delete'> Delete </button>
+						</div>	
+					</td>
+				
+				</tr>
+				<tr>
+					<td>	
+						<img src='{{character.image }}' class="resize"></img>	
+					</td>
+					<td>
+						</p> {{character.info }} </p>
+					</td>
+				</tr>
+			</div>
+{% endfor %}
+</table>
+</div>
 {% endblock %}

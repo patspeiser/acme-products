@@ -1,15 +1,19 @@
-
 <html>
   <head>
+		<link rel='stylesheet' href="css/stylesheet.css" />
 		<link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css" />
-  </head>
+		<script src='js/actions.js'></script>
+	</head>
 
   <body>
     <div role="navigation" class="container fluid">
     	<ul class="nav nav-pills">
 				<li role="presentation" class="active"><a href="/"> Home </a></li>
-				<li role="presentation"> <a href="/products"> Products </a> </li>
+				<li role="presentation"> <a href="/addcharacter"> Add Character</a> </li>
 			</ul>
 		</div>
-  </body>
+  	<div>
+			{% block content %}Index page {% endblock %}
+		</div>
+	</body>
 </html>
