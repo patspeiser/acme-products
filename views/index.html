@@ -7,14 +7,12 @@
 		<tr>
 				<td>	{{product.description}} </td> 
 				<td> 
-					<form method='POST' action='/{{product.id}}?_method=DELETE'> 
+					<form method='POST' action='/products/{{product.id}}?_method=DELETE'> 
 						<button type='submit' class='btn btn-danger'> Delete Product </button>
 					</form>
 				</td>
 				<td>
-					<form action='/product/{{product.id}}'>
-						<button class='btn btn-warning'> Edit </button>
-					</form>
+          <a class='btn btn-warning' href='/products/{{product.id}}'> Edit </a>
 				</td>
 		</tr>
 	{% endfor %}

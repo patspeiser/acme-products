@@ -3,9 +3,9 @@
   <div>
     <table class='table'>
       <tr>
-      <form method='POST' action='/product/{{id}}?_method=PUT'>
+      <form method='POST' action='/products/{{product.id}}?_method=PUT'>
         <td>
-          <input type='text' name='description' class='form-control' placeholder='{{description}}'>
+          <input type='text' value='{{product.description}}' name='description' class='form-control' placeholder='{{description}}'>
         </td>
         <td>
             <button type='submit' class='btn btn-success'> Save Edits </button>

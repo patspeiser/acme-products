@@ -25,15 +25,13 @@ var products = [
 
 var getAllProducts = function(){
 	return products;
-}
+};
 
-var getProductsByID = function(id){
-	for (var i = 0; i < products.length; i++){
-		if (products[i].id == id){
-			return products[i];
-		}
-	}
-}
+var getById = function(id){
+  return products.filter(function(product){
+    return product.id === id;
+  })[0];
+};
 
 var addProduct = function(description){
 	getAllProducts().push({
@@ -41,30 +39,24 @@ var addProduct = function(description){
 		description: description
 		});
 	id++;
-	console.log('product added', getAllProducts())
 };
 
 var deleteProduct = function(id){
-	var deleteProd = this.getAllProducts().filter(function(product){
-			return product.id === id;
-		})[0];
-
-	var indexToDelete = this.getAllProducts().indexOf(deleteProd);
+	var indexToDelete = this.getAllProducts().indexOf(getById(id));
 	this.getAllProducts().splice(indexToDelete, 1);
 };
 
-var updateProduct = function(id, desc){
-	console.log('in actual function', desc);
-	var updateProd = this.getAllProducts().filter(function(product){
-		return product.id === id;
-	})[0];
-	console.log(updateProd, 'updateprod');
-	var indexToUpdate = this.getAllProducts().indexOf(updateProd);
-	this.getAllProducts()[indexToUpdate].description = desc;
-	
+var updateProduct = function(id, description){
+  var product = this.getById(id);
+  product.description = description;
 }
 
 
-console.log(getAllProducts());
-module.exports = { getAllProducts: getAllProducts, getProductsByID: getProductsByID, addProduct: addProduct, deleteProduct: deleteProduct, updateProduct: updateProduct };
+module.exports = { 
+  getAllProducts: getAllProducts,
+  getById: getById,
+  addProduct: addProduct,
+  deleteProduct: deleteProduct,
+  updateProduct: updateProduct
+};
 
